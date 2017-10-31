@@ -1,11 +1,15 @@
 class UserController < ApplicationController
 	
+     get '/users/new' do
+     	erb :'/users/new'
+     end
+
+     post '/users/create' do
+     	raise params.inspect
+     end
 
 	
 
-	private
-	def find_model
-		@model = User.find(params[:id]) if params[:id]
-	end
+	
 end
 
