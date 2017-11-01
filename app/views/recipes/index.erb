@@ -1,0 +1,9 @@
+<h2> All the recipes you know and don't :D</h2>
+</br>
+<a href="/recipes/new">create a recipe of your own </a><br>
+<a href="/ingredients/new"> add a new special ingredient to our knowledge</a>
+
+<h3> Recipes: </h3>
+<% Recipe.all.each do |recipe| %>
+	 <a href="/recipe/#{recipe.id}"><%= recipe.name %></a> 
+ <% end %>

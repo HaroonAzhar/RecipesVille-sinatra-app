@@ -2,7 +2,7 @@ class CreateTables < ActiveRecord::Migration
   def change
   	create_table :users do |t|
       t.string :name
-      t.string :email
+      t.string :username
       t.string :password_digest
      
       end
@@ -13,8 +13,7 @@ class CreateTables < ActiveRecord::Migration
   	  end
   	 create_table :ingredients do |t|
       t.string :name
-      t.string :quantity
-      t.string  :recipe_id
+      t.string :info
       end
   end
 end
