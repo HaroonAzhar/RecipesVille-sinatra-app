@@ -1,0 +1,8 @@
+<form action="/ingredients/<%= @ingred.id %>" method="post">
+  <input id="hidden" type="hidden" name="_method" value="patch">
+  <p>Name of the ingredient: <input type="text" name="name"></p>
+	<p>Information about the ingredient: <input type="textarea" name="info"></p>
+	<br>
+	<input type="submit" value="update">
+  
+</form>

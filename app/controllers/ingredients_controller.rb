@@ -21,9 +21,24 @@ class IngredientController < ApplicationController
    end 
 
     get '/ingredients' do
-       @ingreds=Ingredient.all
+       @ingred=Ingredient.all
        erb :'/ingredients/index'
     end
+
+
+    get '/Ingredients/:id/edit' do
+      @ingred=Ingredient.find_by(id: params[:id])
+      erb :'/ingredients/edit'
+    end
+
+    patch '/ingredients/:id' do
+      @ingred=Ingredient.find_by(id: params[:id])
+      @ingred.info= params[:info]
+      @ingred.name=params[:name]
+      @ingred.save
+      
+    end
+
 
 	
 
