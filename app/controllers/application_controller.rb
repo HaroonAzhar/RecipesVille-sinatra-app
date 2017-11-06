@@ -1,10 +1,13 @@
 class ApplicationController < Sinatra::Base
   register Sinatra::ActiveRecordExtension
   
-  set :session_secret, "my_application_secret"
-  set :views, Proc.new { File.join(root, "../views/") }
-
-  enable :sessions
+  
+  configure do
+    set :public_folder, 'public'
+    set :views, 'app/views'
+    enable :sessions
+    set :session_secret, "coffee_secret"
+  end
   
 
   get '/' do
@@ -14,6 +17,8 @@ class ApplicationController < Sinatra::Base
   get '/login' do
     erb :login 
   end
+
+
 
   post '/login' do
     user = User.find_by(username: params[:username])
@@ -25,6 +30,23 @@ class ApplicationController < Sinatra::Base
         redirect "/login"
     end
   end
+
+
+  helpers do
+    def logged_in?
+      !!current_user
+    end
+
+    def current_user
+      @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
+    end
+
+    def authenticate_user
+      redirect to '/login' if !logged_in?
+    end
+
+  end
+
 
 
 end

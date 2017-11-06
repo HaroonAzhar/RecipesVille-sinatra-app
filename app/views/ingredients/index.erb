@@ -1,5 +1,5 @@
 <h2>All the magical ingredients are here :)</h2>
 
-<%= Ingredient.all.each do |i| %>
-<%=  i.name %>
-<%= end  %>
+<% Ingredient.all.each do |i| %>
+<a href="/ingredients/<%=i.id%>/show"><%=  i.name %></a> </br>
+<% end  %>

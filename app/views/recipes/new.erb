@@ -1,11 +1,10 @@
-<form action="/recipes/create" method="POST">
+<form action="/recipes/create" method="POST" " >
 <p>Name :<input type="text" name="name"></p>
 <h4>Select your ingredients</h4>
 <% Ingredient.all.each do |i|%>
  <p><%= i.name %> </p> 
- <p>Quantity:  <input type="text" name="[recipe][ingredients][][#{i.name}][Quantity]"></p>
+ <p>Quantity:  <input type="text" name="[ingredients][][<%=i.name%>][quantity]"> </p>
  <% end %> 
-
  <input type="submit" value="create your recipe">
 	
 </form>
