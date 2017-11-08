@@ -36,8 +36,11 @@ class IngredientController < ApplicationController
       @ingred.info= params[:info]
       @ingred.name=params[:name]
       @ingred.save
+      erb :'/ingredients/show' 
       
     end
+
+    
 
 
 	

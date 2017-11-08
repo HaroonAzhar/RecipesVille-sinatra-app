@@ -1,0 +1,17 @@
+<h1>inside show</h1>
+
+<h2><%=@recipe.name%> </h2>
+<%@recipe.recipe_ingredients.each do|recipe_ingredient|%>
+   <% ingred=Ingredient.find_by(id: recipe_ingredient.ingredient_id) %>
+<p><%=ingred.name%></p> 
+<p><%=recipe_ingredient.quantity%></p></br>
+<%end%>
+
+
+<a href="/recipes/<%=@recipe.id%>/edit">edit this</a>
+
+<form action="/recipes/<%=@recipe.id%>/delete" method="POST" " >
+<input id="hidden" type="hidden" name="_method" value="delete">
+<input type="submit" value="delete recipe">
+	
+</form>

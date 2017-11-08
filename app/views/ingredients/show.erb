@@ -5,3 +5,11 @@
 <br>
 <p> Info :<%= @ingred.info %><p>
 
+<a href="/ingredients/<%=@ingred.id%>/edit">edit this</a>
+
+<form action="/recipes/<%=@ingred.id%>/delete" method="POST" " >
+<input id="hidden" type="hidden" name="_method" value="delete">
+<input type="submit" value="delete recipe">
+	
+</form>
+

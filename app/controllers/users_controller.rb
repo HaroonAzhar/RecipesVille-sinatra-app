@@ -5,12 +5,14 @@ class UserController < ApplicationController
      end
 
      post '/users/create' do
-     	#raise params.inspect
-     	user = User.new(username: params[:username], password: params[:password])
+     	
+         
+     	user = User.new(username: params[:username], name: params[:name] ,password: params[:password])
  
          if user.save
            redirect "/login"
    	     else
+            flash[:message]='fill in all the details'
             redirect "/users/signup"
          end
      end
